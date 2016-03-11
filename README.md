@@ -1,5 +1,7 @@
 # Preface #
 
+[![Build Status](https://travis-ci.org/xebialabs-community/xld-android-play-plugin.svg?branch=master)](https://travis-ci.org/xebialabs-community/xld-android-play-plugin)
+
 This document describes the functionality provided by the XLD Android Play plugin.
 
 See the **XL Deploy Reference Manual** for background information on XL Deploy and deployment concepts.
