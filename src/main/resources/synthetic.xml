@@ -1,0 +1,29 @@
+<!--
+
+    THIS CODE AND INFORMATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE IMPLIED WARRANTIES OF MERCHANTABILITY AND/OR FITNESS
+    FOR A PARTICULAR PURPOSE. THIS CODE AND INFORMATION ARE NOT SUPPORTED BY XEBIALABS.
+
+-->
+<synthetic xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.xebialabs.com/deployit/synthetic" xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd">
+
+    <type type="play.Store" extends="play.VirtualContainer" >
+        <property name="serviceAccountJson" label="Json" kind="string" required="true" size="large" password="true" description="Json string as downloaded."/>
+    </type>
+
+    <type type="play.ApkDeployed" extends="udm.BaseDeployedArtifact" deployable-type="play.Apk" container-type="play.Store">
+        <generate-deployable type="play.Apk" extends="udm.BaseDeployableArchiveArtifact"/>
+        <property name="packageName"/>
+        <property name="applicationName"/>
+        <property name="track" label="Track" kind="enum" required="true" description="Track to deploy to.">
+            <enum-values>
+                <value>alpha</value>
+                <value>beta</value>
+                <value>rollout</value>
+                <value>production</value>
+            </enum-values>
+        </property>
+    </type>
+
+</synthetic>

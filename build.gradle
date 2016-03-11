@@ -1,0 +1,55 @@
+plugins {
+    id "com.github.hierynomus.license" version "0.12.1"
+    id "com.xebialabs.xldp" version "1.0.5"
+}
+
+defaultTasks 'build'
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+apply plugin: 'maven'
+
+group = 'com.xebialabs.deployit.community'
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+version = '1.0.0.RC1'
+def apiVersion = '2015.6.3'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        credentials {
+            username 'community-plugins'
+            password 'community'
+        }
+        url 'http://nexus.xebialabs.com/nexus/content/repositories/releases'
+    }
+}
+
+configurations {
+    distBundle {
+        transitive = false
+    }
+}
+
+
+dependencies {
+    distBundle 'com.fasterxml.jackson.core:jackson-core:2.1.3'
+    distBundle 'com.google.apis:google-api-services-androidpublisher:v2-rev24-1.21.0'
+    distBundle 'com.google.api-client:google-api-client:1.21.0'
+    distBundle 'com.google.http-client:google-http-client:1.21.0'
+    distBundle 'com.google.http-client:google-http-client-jackson2:1.21.0'
+    distBundle 'com.google.oauth-client:google-oauth-client:1.21.0'
+    compile 'com.google.apis:google-api-services-androidpublisher:v2-rev24-1.21.0'
+    compile "com.xebialabs.deployit:udm-plugin-api:$apiVersion"
+    compile 'commons-io:commons-io:2.4'
+
+}
+
+
+license {
+    header rootProject.file('src/main/license/xebialabs_community.license')
+    strictCheck true
+}
