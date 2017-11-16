@@ -1,4 +1,6 @@
 .gradle
 .idea
 build
+temp
+supervisord.*
 xld-android-play-plugin.iml
